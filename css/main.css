@@ -64,14 +64,14 @@ header nav ul li a:hover{
 
 .s-hero .text h1::before{
     content: '';
-    width: 100%;
     max-width: 59.9rem;
     height: 2.2rem;
-    background: url('../imgs/line-title.svg') no-repeat center center;
+    background: url('../imgs/line-title.svg') no-repeat left center;
     position: absolute;
     bottom: -.5rem;
     left: 3.9rem;
     z-index: -1;
+    animation: drawLine 1s .5s ease-in forwards;
 }
 
 .s-hero::after{
@@ -96,6 +96,8 @@ header nav ul li a:hover{
     position: absolute;
     bottom: 1.7rem;
     left: 5.5rem;
+
+    animation: floating 3s ease-in-out infinite;
 }
 
 .s-hero .ilustra{
@@ -258,17 +260,123 @@ footer .copy strong{
     font-weight: 600;
 }
 
+/* Animações */
+
+@keyframes drawLine {
+    from{
+        width: 0;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+@keyframes floating {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(15px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+
 /* Media Queries */
 
 /* Monitores pequenos */
 @media(max-width: 1200px){
-    
+    .s-digital{
+        padding-top: 6.8rem;    
+    }
+
+    .s-digital ul{
+        gap: 3.2rem;
+        padding-bottom: 6.8rem;
+    } 
+
+    .item-digital .info h6{
+        font-size: 2rem;
+    }
+
+    .item-digital .info p{
+        font-size: 1.6rem;
+    }
+
+    .s-art-front{
+        padding: 6rem 0;
+    }
+
+    .s-art-front .all{
+        gap: 1.6rem;
+    }
+
+    .s-art-front .all .card-post:first-child,
+    .s-art-front .all .card-post:nth-child(2){
+        grid-column: span 3;
+    }
+
+    footer .main-area .right{
+        max-width: 66.2rem;
+    }
 }
 
 /* Tablets */
 @media(max-width: 991px){
     .s-hero::after{
         height: 13rem;
+    }
+
+    .s-digital ul{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .s-art-front .title-text{
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 4rem;
+    }
+
+    .s-art-front .title-text .left,
+    .s-art-front .title-text .right{
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .s-art-front .title-text .left p{
+        max-width: 100%;
+        margin-top: 8px;
+    }
+
+    .s-art-front .all{
+        grid-template-columns: 1fr;
+    }
+
+    .s-art-front .all .card-post:first-child,
+    .s-art-front .all .card-post:nth-child(2){
+        grid-column: initial;
+    }
+
+    footer .main-area{
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    footer .main-area .left{
+        max-width: 100%;
+        text-align: center;
+    }
+
+    footer .main-area .left img{
+        margin: 0 auto;
+    }
+
+    footer .main-area .right{
+        max-width: 100%;
+        width: 100%;
     }
 }
 
@@ -307,7 +415,6 @@ footer .copy strong{
         max-width: 6rem;
     }
 }
-
 
 /* Celulares */
 @media(max-width: 560px){
@@ -350,5 +457,81 @@ footer .copy strong{
 
     .s-hero::after{
         height: 22rem;
+    }
+
+    .s-digital{
+        padding-top: 8rem;
+    }
+
+    .s-digital ul{
+        padding-bottom: 8rem;
+        gap: 64px;
+    }
+
+    .s-digital h3{
+        font-size: 2.8rem;
+    }
+
+    .s-art-front {
+        padding: 8rem 0;
+    }
+    
+    .s-art-front .title-text h3{
+        font-size: 28px;
+        max-width: 227px;
+        margin: 0 auto;
+    }
+
+    .s-art-front .title-text .left p{
+        margin-top: 16px;
+    }
+
+    .s-art-front .title-text p{
+        font-size: 16px;
+    }
+
+    .s-art-front .all{
+        gap: 3.2rem;
+    }
+
+    .s-newsletter h2{
+        font-size: 4rem;
+    }
+
+    footer .main-area{
+        padding-bottom: 4.8rem;
+    }
+
+    footer .main-area .right{
+        flex-direction: column;
+        align-items: center;
+        gap: 4.8rem;
+    }
+
+    footer .main-area .right .item-nav h6{
+        text-align: center;
+    }
+
+    footer .main-area .right .item-nav ul li a{
+        justify-content: center;
+    }
+
+    footer .main-area .right .item-nav:last-child{
+        width: 100%;
+    }
+
+    footer .main-area .right .item-nav:last-child ul{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    footer .main-area .right .item-nav:last-child ul li:not(:last-child){
+        margin-bottom: 0;
+    }
+
+    footer .copy{
+        text-align: center;
+        font-size: 14px;
     }
 }
